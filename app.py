@@ -92,4 +92,4 @@ def get_output_potato():
         return render_template("predict_potato.html", prediction=p, img_path=target_path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
