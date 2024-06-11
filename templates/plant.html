@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/images/logo_n.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/styles/plant.css')}}">
+</head>
+<body>
+    <form action="/" method="get">
+        <input type="image" id="logo" src="{{url_for('static', filename='/images/logo.png')}}"
+            style="width: 130px; height: 45px;" alt="logo">
+    </form>
+    <div id="container">
+        <p id="select">Select the plant category for detection</p>
+        <div id="plant_container">
+            <form action="/plant/tomato" method="get">
+                <input style="height: 190px; width: 190px;" class="plant" type="image" src="{{url_for('static', filename='/images/tomato.png')}}">
+            </form>
+            <form action="/plant/potato" method="get">
+                <input style="height: 190px; width: 190px;" class="plant" type="image" src="{{url_for('static', filename='/images/potato.png')}}">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Potato</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/images/logo_n.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/predict.css')}}">
+    <script src="{{url_for('static', filename='scripts/predict.js')}}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="/" method="get">
+        <input type="image" id="logo" src="{{url_for('static', filename='/images/logo.png')}}"
+            style="width: 130px; height: 45px;" alt="logo">
+    </form>
+    <div id="container">
+        <p id="upload">Upload a potato leaf for analysis</p>
+        <form id="plant" action="/plant/potato/predict" method="post" enctype="multipart/form-data">
+            <div id="cloud_container">
+                <label id="choose" for="image">
+                    {% if prediction %}
+                    <img id="cloud" style="height: 120px; width: 120px;" src="{{img_path}}" alt="leaf">
+                    {% else %}
+                    <img id="cloud" style="height: 120px; width: 120px;"
+                        src="{{url_for('static', filename='/images/choose.png')}}" alt="cloud">
+                    {% endif %}
+                    <p>Drag or choose a leaf image</p>
+                </label>
+                <input type="file" id="image" name="image">
+            </div>
+            <button>Predict</button>
+        </form>
+
+        {% if prediction %}
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const prediction = "{{prediction}}";
+                if (prediction) {
+                    let popupContent = "";
+                    if (prediction.toLowerCase() === "healthy") {
+                        popupContent = '<img src="{{url_for("static", filename="/images/healthy.png")}}" alt="Healthy"><h2>Your potato is healthy!</h2><form action="/plant/potato" method="get"><button>Retry</button></form>';
+                    } else if (prediction.toLowerCase() === "diseased") {
+                        popupContent = '<img src="{{url_for("static", filename="/images/diseased.png")}}" alt="Diseased"><h2>Your potato is diseased!</h2><form action="/plant/potato" method="get"><button>Retry</button></form>';
+                    }
+
+                    if (popupContent) {
+                        const overlay = document.createElement('div');
+                        overlay.className = 'overlay';
+                        document.body.appendChild(overlay);
+
+                        const popup = document.createElement('div');
+                        popup.className = 'popup';
+                        popup.innerHTML = popupContent;
+                        document.body.appendChild(popup);
+
+                        overlay.style.display = 'block';
+                        popup.style.display = 'block';
+
+                        overlay.addEventListener('click', function () {
+                            overlay.style.display = 'none';
+                            popup.style.display = 'none';
+                            cloudImage.src = "{{url_for('static', filename='/images/choose.png')}}";
+                        });
+                    }
+                }
+            });
+        </script>
+        {% endif %}
+    </div>
+</body>
+
+</html>

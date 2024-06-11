@@ -1,0 +1,71 @@
+@import url('https://fonts.cdnfonts.com/css/gabriola');
+
+body{
+    background-image: url('../images/background.png');
+    background-size: 100% 102%;
+    height: 95vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#logo{
+    margin: 20px;
+}
+
+#logo:hover{
+    transform: scale(1.1);
+}
+
+#logoout{
+    margin: 20px;
+    cursor: pointer;
+}
+
+#logoout:hover{
+    transform: scale(1.1);
+}
+
+#logo span{
+    font-size: 35px;
+    font-weight: bold;
+    color: #659c8f;
+    font-family: 'Gabriola', sans-serif;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#title{
+    font-size: 60px;
+    color: rgb(130, 182, 175);
+    font-weight: bold;
+    text-align: center;
+}
+
+#sub_title{
+    font-size: 22px;
+    color: rgb(53, 99, 99);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+button{
+    padding: 10px 35px;
+    font-size: 17px;
+    border-radius: 19px;
+    background-color: #71ab9d;
+    border-color: transparent;
+    color: white;
+    box-shadow: rgb(68, 68, 68) 3px 3px 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #438173;
+    box-shadow: rgb(68, 68, 68) 4px 4px 6px;
+}
+
+

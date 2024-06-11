@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/images/logo_n.png')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/styles/start.css')}}">
+</head>
+
+<body>
+    <form action="/" method="get">
+        <input type="image" id="logo" src="{{url_for('static', filename='/images/logo.png')}}"
+            style="width: 130px; height: 45px;" alt="logo">
+    </form>
+    <p id="title">New Technology for Plant<br>Disease Detection<br>
+        <span id="sub_title">Identify the plant disease with a single snap</span><br>
+    </p>
+    <form style="width:100%; display:flex; justify-content: center;" action="/plant" method="get">
+        <button>Start Now</button>
+    </form>
+    </div>
+</body>
+
+</html>
